@@ -1,0 +1,16 @@
+sedan,BMW,3 Series,negro,40000,25000.0,2018,bmw_3_series.jpg,bmw_3_series.txt
+camioneta,Mazda,CX-5,rojo,45000,30000.0,2017,mazda_cx5.jpg,mazda_cx5.txt
+sedan,Audi,A4,azul,50000,27000.0,2019,audi_a4.jpg,audi_a4.txt
+hatchback,Mini,Cooper,blanco,30000,22000.0,2020,mini_cooper.jpg,mini_cooper.txt
+camioneta,Subaru,Forester,negro,55000,25000.0,2016,subaru_forester.jpg,subaru_forester.txt
+sedan,Mercedes-Benz,C-Class,blanco,42000,29000.0,2019,mercedes_c_class.jpg,mercedes_c_class.txt
+hatchback,Fiat,500,gris,35000,20000.0,2020,fiat_500.jpg,fiat_500.txt
+camioneta,Hyundai,Tucson,negro,50000,26000.0,2017,hyundai_tucson.jpg,hyundai_tucson.txt
+sedan,Lexus,IS,gris,45000,29000.0,2018,lexus_is.jpg,lexus_is.txt
+hatchback,Mazda,3,gris,32000,23000.0,2019,mazda_3.jpg,mazda_3.txt
+camioneta,Nissan,Rogue,negro,60000,28000.0,2016,nissan_rogue.jpg,nissan_rogue.txt
+sedan,Acura,TLX,gris,40000,24000.0,2018,acura_tlx.jpg,acura_tlx.txt
+hatchback,Chevrolet,Sonic,azul,28000,17000.0,2020,chevrolet_sonic.jpg,chevrolet_sonic.txt
+camioneta,Tesla,Model X,negro,50000,30000.0,2017,tesla_model_x.jpg,tesla_model_x.txt
+sedan,Volvo,S60,rojo,42000,31000.0,2019,volvo_s60.jpg,volvo_s60.txt
+hatchback,Peugeot,208,blanco,30000,19000.0,2020,peugeot_208.jpg,peugeot_208.txt

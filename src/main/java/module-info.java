@@ -3,6 +3,6 @@ module cecy.proyecto1grupo8 {
     requires javafx.fxml;
     requires java.base;
 
-    opens proyecto1Grupo13 to javafx.fxml;
-    exports proyecto1Grupo13;
+    opens proyecto1.grupo13 to javafx.fxml;
+    exports proyecto1.grupo13;
 }

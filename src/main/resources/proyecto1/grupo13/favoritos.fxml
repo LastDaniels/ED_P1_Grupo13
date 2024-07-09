@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="root" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto1.grupo13.FavoritosController">
+   <children>
+      <ScrollPane hvalue="1.0" layoutX="10.0" layoutY="35.0" prefHeight="500.0" prefWidth="580.0" style="-fx-background-color: white;">
+         <content>
+            <AnchorPane maxHeight="300.0" minHeight="0.0" minWidth="0.0">
+               <children>
+                  <HBox fx:id="contenedor" prefHeight="0.0" prefWidth="0.0" spacing="20.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <Button fx:id="btnRegresar" layoutX="10.0" layoutY="544.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="123.0" style="-fx-background-color: #ffffff; -fx-border-color: #FF0000;" text="Regresar" textAlignment="CENTER" textFill="#ff0606">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Label layoutX="10.0" layoutY="6.0" text="Favoritos:" textFill="#187dd0">
+         <font>
+            <Font name="Cooper Black" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnFavorito" layoutX="370.0" layoutY="544.0" mnemonicParsing="false" onAction="#quitarFavorito" prefHeight="42.0" style="-fx-background-color: #ffffff; -fx-border-color: #FF0000;" text="Eliminar de Favoritos" textFill="RED">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+         <effect>
+            <Blend>
+               <topInput>
+                  <DropShadow />
+               </topInput>
+            </Blend>
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>
