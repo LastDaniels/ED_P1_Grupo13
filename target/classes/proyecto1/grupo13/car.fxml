@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto1.grupo13.CarController">
+   <children>
+      <Label fx:id="lblMessage" layoutX="35.0" layoutY="7.0" text="Ingresa el auto:" textFill="#3269d9">
+         <font>
+            <Font name="Cooper Black" size="26.0" />
+         </font>
+      </Label>
+      <Button id="back" fx:id="btnBack" layoutX="456.0" layoutY="108.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="123.0" style="-fx-background-color: #ffffff; -fx-border-color: ff0000;" text="Regresar" textFill="RED">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+         <effect>
+            <DropShadow blurType="ONE_PASS_BOX">
+               <color>
+                  <Color red="0.3686274588108063" green="0.3686274588108063" blue="0.3686274588108063" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Button>
+      <Button id="add" fx:id="btnAction" layoutX="456.0" layoutY="47.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="123.0" style="-fx-background-color: #ffffff; -fx-border-color: #00ff05;" text="Agregar" textFill="#00ff05">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+         <effect>
+            <DropShadow blurType="ONE_PASS_BOX">
+               <color>
+                  <Color red="0.3686274588108063" green="0.3686274588108063" blue="0.3686274588108063" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Button>
+      <TextField fx:id="txtYear" layoutX="157.0" layoutY="189.0" prefHeight="25.0" prefWidth="134.0" promptText="Año" style="-fx-border-color: #0e234d; -fx-background-color: #ffffffff;" />
+      <TextField fx:id="txtKim" layoutX="300.0" layoutY="189.0" prefHeight="27.0" prefWidth="146.0" promptText="Kilometraje" style="-fx-border-color: #0e234d; -fx-background-color: #ffffffff;" />
+      <TextField fx:id="txtPrice" layoutX="456.0" layoutY="189.0" prefHeight="25.0" prefWidth="134.0" promptText="Precio" style="-fx-border-color: #0e234d; -fx-background-color: #ffffffff;" />
+      <TextArea fx:id="txtDescription" layoutX="17.0" layoutY="232.0" prefHeight="123.0" prefWidth="439.0" promptText="Descripción" style="-fx-border-color: #0e234d; -fx-background-color: #ffffffff;" />
+      <Pane layoutX="467.0" layoutY="232.0" prefHeight="123.0" prefWidth="123.0" style="-fx-border-color: #b74113;">
+         <children>
+            <ImageView fx:id="imgCar" fitHeight="94.0" fitWidth="98.0" layoutX="12.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
+      <TextField fx:id="txtType" layoutX="31.0" layoutY="54.0" prefHeight="27.0" prefWidth="189.0" promptText="Tipo" style="-fx-border-color: #0e234d; -fx-background-color: #ffffffff;" />
+      <TextField fx:id="txtModelo" layoutX="31.0" layoutY="129.0" prefHeight="27.0" prefWidth="189.0" promptText="Modelo" style="-fx-border-color: #0e234d; -fx-background-color: #ffffffff;" />
+      <TextField fx:id="txtMarca" layoutX="31.0" layoutY="92.0" prefHeight="27.0" prefWidth="189.0" promptText="Marca" style="-fx-border-color: #0e234d; -fx-background-color: #ffffffff;" />
+      <TextField fx:id="txtColor" layoutX="17.0" layoutY="189.0" prefHeight="25.0" prefWidth="134.0" promptText="Color" style="-fx-border-color: #0e234d; -fx-background-color: #ffffffff;" />
+      <Label fx:id="lblConfirma" layoutX="17.0" layoutY="360.0" textFill="#b74113">
+         <font>
+            <Font name="System Bold Italic" size="19.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
