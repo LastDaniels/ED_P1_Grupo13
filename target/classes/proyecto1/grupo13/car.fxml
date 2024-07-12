@@ -14,10 +14,10 @@
    <children>
       <Label fx:id="lblMessage" layoutX="35.0" layoutY="7.0" text="Ingresa el auto:" textFill="#3269d9">
          <font>
-            <Font name="Cooper Black" size="26.0" />
+            <Font name="Bookman Old Style" size="26.0" />
          </font>
       </Label>
-      <Button id="back" fx:id="btnBack" layoutX="456.0" layoutY="108.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="123.0" style="-fx-background-color: #ffffff; -fx-border-color: ff0000;" text="Regresar" textFill="RED">
+      <Button id="back" fx:id="btnBack" layoutX="456.0" layoutY="108.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="123.0" style="-fx-background-color: ff0000; -fx-border-color: ff0000; -fx-border-radius: 10px;" text="Regresar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
@@ -29,7 +29,7 @@
             </DropShadow>
          </effect>
       </Button>
-      <Button id="add" fx:id="btnAction" layoutX="456.0" layoutY="47.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="123.0" style="-fx-background-color: #ffffff; -fx-border-color: #00ff05;" text="Agregar" textFill="#00ff05">
+      <Button id="add" fx:id="btnAction" layoutX="456.0" layoutY="47.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="123.0" style="-fx-background-color: #00ff05; -fx-border-color: #00ff05; -fx-border-radius: 10px;" text="Agregar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto1.grupo13.TodosLosCarrosController">
+   <children>
+      <Button fx:id="rightbtn" layoutX="498.0" layoutY="152.0" onAction="#siguiente" style="-fx-background-color: #000000; -fx-border-radius: 10px;" text="&gt;" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS" size="18.0" />
+         </font></Button>
+      <Button fx:id="leftbtn" layoutX="92.0" layoutY="152.0" onAction="#anterior" style="-fx-background-color: #000000; -fx-border-radius: 10px;" text="&lt;" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS" size="18.0" />
+         </font></Button>
+      <Button fx:id="btnAtras" layoutX="30.0" layoutY="336.0" onAction="#volver" prefHeight="41.0" prefWidth="68.0" style="-fx-background-color: ff0000; -fx-border-color: ff0000; -fx-border-radius: 10px;" text="Atras" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <HBox fx:id="boxImages" layoutX="145.0" layoutY="61.0" prefHeight="183.0" prefWidth="258.0" />
+   </children>
+</AnchorPane>

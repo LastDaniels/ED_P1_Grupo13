@@ -6,18 +6,44 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="625.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto1.grupo13.PrincipalController">
    <children>
-      <Label alignment="CENTER" layoutX="78.0" layoutY="41.0" prefHeight="58.0" prefWidth="470.0" text="Bienvenidos a BestCar" textAlignment="CENTER" textFill="#dd3232">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="127.0" layoutX="-77.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="769.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.0972222238779068" blue="0.0972222238779068" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.4093959731543624">
+                     <color>
+                        <Color red="1.0" green="0.0972222238779068" blue="0.0972222238779068" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Label alignment="CENTER" layoutX="78.0" layoutY="34.0" prefHeight="58.0" prefWidth="470.0" text="Bienvenidos a BestCar" textAlignment="CENTER">
          <font>
-            <Font name="Cooper Black" size="40.0" />
+            <Font name="Book Antiqua" size="40.0" />
          </font>
       </Label>
-      <Button fx:id="buttonAutos" layoutX="368.0" layoutY="154.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="197.0" style="-fx-border-color: #14a1b5; -fx-background-color: #ffffff;" text="Busca tu auto" textFill="#14a1b5">
+      <Button fx:id="buttonAutos" layoutX="13.0" layoutY="374.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="131.0" style="-fx-border-color: #14a1b5; -fx-background-color: #14a1b5; -fx-border-radius: 10px;" text="Busca tu auto" textFill="WHITE">
          <font>
-            <Font name="System Bold Italic" size="15.0" />
+            <Font name="Bookman Old Style" size="15.0" />
          </font>
          <effect>
             <DropShadow blurType="ONE_PASS_BOX">
@@ -27,9 +53,9 @@
             </DropShadow>
          </effect>
       </Button>
-      <Button fx:id="buttonRegitros" layoutX="368.0" layoutY="207.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="197.0" style="-fx-border-color: #34fa65; -fx-background-color: #ffffff;" text="Autos en venta" textFill="#34fa65">
+      <Button fx:id="buttonRegitros" layoutX="169.0" layoutY="374.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="137.0" style="-fx-border-color: #34fa65; -fx-background-color: #34fa65; -fx-border-radius: 10px;" text="Autos en venta" textFill="WHITE">
          <font>
-            <Font name="System Bold Italic" size="15.0" />
+            <Font name="Bookman Old Style" size="15.0" />
          </font>
          <effect>
             <DropShadow>
@@ -39,12 +65,12 @@
             </DropShadow>
          </effect>
       </Button>
-      <ImageView fx:id="imagePrincipal" fitHeight="182.0" fitWidth="315.0" layoutX="61.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagePrincipal" fitHeight="182.0" fitWidth="315.0" layoutX="197.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imageLupa" fitHeight="34.0" fitWidth="40.0" layoutX="197.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="ImageLista" fitHeight="34.0" fitWidth="40.0" layoutX="491.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="btnFavoritos" layoutX="368.0" layoutY="259.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="197.0" style="-fx-border-color: #b74113; -fx-background-color: #ffffff;" text="Favoritos" textFill="#fa3434">
+      <Button fx:id="btnFavoritos" layoutX="328.0" layoutY="374.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="107.0" style="-fx-border-color: #9e34fa; -fx-background-color: #9e34fa; -fx-border-radius: 10px;" text="Favoritos" textFill="#fdfaff">
          <font>
-            <Font name="System Bold Italic" size="15.0" />
+            <Font name="Bookman Old Style" size="15.0" />
          </font>
          <effect>
             <DropShadow blurType="ONE_PASS_BOX">
@@ -54,12 +80,24 @@
             </DropShadow>
          </effect>
       </Button>
-      <Button fx:id="btnsalir" layoutX="34.0" layoutY="351.0" mnemonicParsing="false" onAction="#salir" style="-fx-border-color: #000000; -fx-background-color: #ffffff;" text="Salir">
+      <Button fx:id="btnsalir" layoutX="14.0" layoutY="133.0" mnemonicParsing="false" onAction="#salir" style="-fx-border-color: #ff0000; -fx-background-color: #ff0000; -fx-border-radius: 10px;" text="Salir">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
          <effect>
             <DropShadow>
+               <color>
+                  <Color red="0.5647059082984924" green="0.5647059082984924" blue="0.5647059082984924" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Button>
+      <Button fx:id="btnTodosLosCarros" layoutX="455.0" layoutY="374.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="156.0" style="-fx-border-color: #34fae5; -fx-background-color: #34fae5; -fx-border-radius: 10px;" text="Autos Disponibles" textFill="#f2f2f2">
+         <font>
+            <Font name="Bookman Old Style" size="15.0" />
+         </font>
+         <effect>
+            <DropShadow blurType="ONE_PASS_BOX">
                <color>
                   <Color red="0.5647059082984924" green="0.5647059082984924" blue="0.5647059082984924" />
                </color>
