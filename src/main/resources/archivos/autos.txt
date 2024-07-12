@@ -1,3 +1,4 @@
+sedan,Ford,Fiesta,rojo,50000,12000.0,2018,ford_fiesta.jpg,ford_fiesta.txt
 sedan,BMW,3 Series,negro,40000,25000.0,2018,bmw_3_series.jpg,bmw_3_series.txt
 camioneta,Mazda,CX-5,rojo,45000,30000.0,2017,mazda_cx5.jpg,mazda_cx5.txt
 sedan,Audi,A4,azul,50000,27000.0,2019,audi_a4.jpg,audi_a4.txt
