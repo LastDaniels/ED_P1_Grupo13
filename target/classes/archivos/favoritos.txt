@@ -3,3 +3,4 @@ camioneta,Subaru,Forester,negro,55000,25000.0,2016,subaru_forester.jpg,subaru_fo
 camioneta,Hyundai,Tucson,negro,50000,26000.0,2017,hyundai_tucson.jpg,hyundai_tucson.txt
 hatchback,Mazda,3,gris,32000,23000.0,2019,mazda_3.jpg,mazda_3.txt
 hatchback,Chevrolet,Sonic,azul,28000,17000.0,2020,chevrolet_sonic.jpg,chevrolet_sonic.txt
+sedan,Ford,Fiesta,rojo,50000,12000.0,2018,ford_fiesta.jpg,ford_fiesta.txt
