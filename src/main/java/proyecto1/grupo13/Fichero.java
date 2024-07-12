@@ -48,11 +48,13 @@ public class Fichero {
     }
     
 
-    public static Queue<Auto> cargarAutos() {
+    public static ArrayListAuto<Auto> cargarAutos() {
 
-        Queue<Auto> autos = new LinkedList<>();
+        ArrayListAuto<Auto> autos = new ArrayListAuto<>();
         Queue<String> datos = Fichero.leer("src/main/resources/archivos/autos.txt");
-        for (String dato : datos) {
+        Iterator<String> it = datos.iterator();
+        while(it.hasNext()) {
+            String dato = it.next();
             String[] line = dato.split(",");
             Auto a = new Auto(line[0], line[1], line[2], line[3], Integer.valueOf(line[4]), Double.parseDouble(line[5]), Integer.valueOf(line[6]), line[7], line[8]);
             autos.add(a);

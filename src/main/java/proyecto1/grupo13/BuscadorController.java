@@ -101,7 +101,7 @@ public class BuscadorController implements Initializable {
             ComboBox<String> cb6
     ) {
 
-        Queue<Auto> autos;
+        ArrayListAuto<Auto> autos;
         autos = Fichero.cargarAutos();
         getMarcas(autos, cb1);
 
@@ -119,24 +119,32 @@ public class BuscadorController implements Initializable {
 
     }
 
-    private void getMarcas(Queue<Auto> list, ComboBox<String> cb) {
+    private void getMarcas(ArrayListAuto<Auto> list, ComboBox<String> cb) {
         Set<String> marcas = new HashSet<>();
-        for (Auto auto : list) {
+        Iterator<Auto> it = list.iterator();
+        while (it.hasNext()) {
+            Auto auto = it.next();
             marcas.add(auto.getMarca());
         }
-        for (String string : marcas) {
-            cb.getItems().add(string);
+        Iterator<String> its = marcas.iterator();
+        while (its.hasNext()) {
+            String s = its.next();
+            cb.getItems().add(s);
         }
 
     }
 
     private void getTipo(Queue<Auto> list, ComboBox<String> cb) {
         Set<String> tipo = new HashSet<>();
-        for (Auto auto : list) {
-            tipo.add(auto.getTipo());
+        Iterator<Auto> it = list.iterator();
+        while (it.hasNext()) {
+            Auto auto = it.next();
+            tipo.add(auto.getMarca());
         }
-        for (String string : tipo) {
-            cb.getItems().add(string);
+        Iterator<String> itp = tipo.iterator();
+        while (itp.hasNext()) {
+            String s = itp.next();
+            cb.getItems().add(s);
         }
     }
 
@@ -160,17 +168,20 @@ public class BuscadorController implements Initializable {
 
     }
 
-    private void getModelo(Queue<Auto> list, String marca, ComboBox<String> cbModelo) {
+    private void getModelo(ArrayListAuto<Auto> list, String marca, ComboBox<String> cbModelo) {
         Set<String> modelos = new HashSet<>();
-        for (Auto auto : list) {
+        Iterator<Auto> it = list.iterator();
+        while(it.hasNext()) {
+            Auto auto = it.next();
             if (marca != null && auto.getMarca().equals(marca)) {
                 modelos.add(auto.getModelo());
             }
 
         }
         cbModelo.getItems().clear();
-        for (String string : modelos) {
-
+        Iterator<String> itm = modelos.iterator();
+        while(itm.hasNext()) {
+            String string = itm.next();
             cbModelo.getItems().add(string);
         }
     }

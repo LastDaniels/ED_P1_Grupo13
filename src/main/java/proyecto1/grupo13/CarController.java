@@ -159,7 +159,7 @@ public class CarController implements Initializable {
                         
                         Platform.runLater(() -> {
                             try {
-                                Thread.sleep(1000); // Esperar 3 segundos
+                                Thread.sleep(1000); 
                             } catch (InterruptedException ex) {
                                 ex.printStackTrace();
                             }

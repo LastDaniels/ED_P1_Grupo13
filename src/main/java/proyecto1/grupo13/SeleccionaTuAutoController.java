@@ -1,15 +1,13 @@
 package proyecto1.grupo13;
 
-import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -39,79 +37,63 @@ public class SeleccionaTuAutoController implements Initializable {
     private Label lbltitulo;
 
     public static String[] datosBusqueda;
-    //public static ArrayListAuto<Auto> autos=App.crearArrayList("autos.txt");
-    public static ArrayListAuto<Auto> favoritos=App.crearArrayList("favoritos.txt");
+    public static ArrayListAuto<Auto> favoritos = App.crearArrayList("favoritos.txt");
     public static AnchorPane seleccionado;
-
-    /**
-     * Initializes the controller class.
-     */
+    public static Auto autoSeleccionado;
     @Override
-
     public void initialize(URL url, ResourceBundle rb) {
         try {
             LlenarDatos(hb, App.crearArrayList("autos.txt"), datosBusqueda);
         } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
         }
     }
 
     @FXML
     public void atras(ActionEvent event) {
-
         try {
             App.setRoot("buscador");
         } catch (IOException ex) {
+            ex.printStackTrace();
         }
-
     }
-    
-   
+
     @FXML
     public static void mostrar(MouseEvent event) {
-        for (Auto a : App.crearArrayList("autos.txt")) {
-            if (CompararAutoSeleccionado(a, (AnchorPane) event.getSource())) {
-                AnchorPane ap = new AnchorPane();
-                StringBuilder contenido = new StringBuilder();
-
-                try (BufferedReader br = new BufferedReader(new FileReader(App.pathDescripciones + a.getDescripcion()))) {
-                    String linea;
-                    while ((linea = br.readLine()) != null) {
-                        contenido.append(linea).append("\n");
-                    }
+        AnchorPane source = (AnchorPane) event.getSource();
+        Iterator<Auto> it = (App.crearArrayList("autos.txt")).iterator();
+        while(it.hasNext()) {
+            Auto a = it.next();
+            if (CompararAutoSeleccionado(a, source)) {
+                seleccionado = source;
+                autoSeleccionado = a; // Guardar el auto seleccionado
+                String[] seleccionados = {a.getTipo(),a.getMarca(),a.getModelo(),a.getColor(),String.valueOf(a.getKilometraje()),String.valueOf(a.getPrecio()),String.valueOf(a.getAnio()),a.getImagen(),a.getDescripcion()};
+                datosBusqueda = seleccionados;
+                try {
+                    App.setRoot("DetalleAuto");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
-                Label label = new Label(contenido.toString());
-                label.setPrefWidth(550);
-                label.setAlignment(Pos.TOP_LEFT);
-                label.setLayoutX(10);
-                label.setLayoutY(10);
-                label.setWrapText(true);
-                ap.getChildren().add(label);
-                
-                Scene scene = new Scene(ap);
-                Stage stage = new Stage();
-                stage.setScene(scene);
-                stage.setTitle("Descripción del Auto");
-                stage.show();
             }
         }
     }
 
-    @FXML
     public static void LlenarDatos(HBox hbox, ArrayListAuto<Auto> ar, String[] datos) throws FileNotFoundException {
-        
         VBox vb = new VBox();
-        vb.prefWidth(100);
-        vb.prefHeight(200);
+        vb.setPrefWidth(100);
+        vb.setPrefHeight(200);
         vb.setSpacing(15);
         ArrayListAuto<Auto> autosBusqueda = new ArrayListAuto<>();
         if (datos.length == 1) {
-            for (Auto a : ar)
+            Iterator<Auto> it = ar.iterator();
+            while(it.hasNext()){
+                Auto a = it.next();
                 autosBusqueda.add(a);
+            }
         } else {
-            for (Auto a : ar) {
+            Iterator<Auto> it = ar.iterator();
+            while(it.hasNext()) {
+                Auto a = it.next();
                 if (datos[0].equals(a.getMarca())
                         && datos[1].equals(a.getModelo())
                         && Integer.parseInt(datos[2]) <= a.getKilometraje()
@@ -129,8 +111,8 @@ public class SeleccionaTuAutoController implements Initializable {
             } else {
                 hbox.getChildren().add(vb);
                 vb = new VBox();
-                vb.prefWidth(100);
-                vb.prefHeight(200);
+                vb.setPrefWidth(100);
+                vb.setPrefHeight(200);
                 vb.setSpacing(15);
                 LlenarVbox(vb, autosBusqueda.get(i));
             }
@@ -141,7 +123,6 @@ public class SeleccionaTuAutoController implements Initializable {
         }
     }
 
-    @FXML
     public static void LlenarVbox(VBox vb, Auto a) throws FileNotFoundException {
         AnchorPane ap = new AnchorPane();
         ap.setPrefSize(100, 250);
@@ -184,19 +165,11 @@ public class SeleccionaTuAutoController implements Initializable {
         lblprecio.setFont(new Font("System Bold", 16));
 
         ap.getChildren().addAll(iv, lblmodelo, lblanio, lblmarca, lbltipo, lblprecio);
-        ap.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent e) {
-                mostrar(e);
-                ap.setStyle("-fx-border-color: black; -fx-border-width: 5px;");
-                seleccionado=ap;
-            }
-        });
+        ap.setOnMouseClicked(e -> mostrar(e));
 
         vb.getChildren().add(ap);
     }
 
-    @FXML
     public static boolean CompararAutoSeleccionado(Auto a, AnchorPane anchorPane) {
         Label lblmodelo = (Label) anchorPane.getChildren().get(1);
         Label lblanio = (Label) anchorPane.getChildren().get(2);
@@ -209,71 +182,58 @@ public class SeleccionaTuAutoController implements Initializable {
                 && a.getMarca().equals(lblmarca.getText())
                 && a.getTipo().equals(lbltipo.getText())
                 && a.getPrecio() == Double.parseDouble(lblprecio.getText().substring(2));
-
     }
-    
+
     @FXML
     public void marcarFavorito(ActionEvent event) {
-        if(seleccionado == null){
+        if (seleccionado == null) {
             lbltitulo.setText("Debes seleccionar un auto.");
-            
-        }else{
+        } else {
             Stage stage = new Stage();
-            AnchorPane rootmensaje=new AnchorPane();
-            VBox vbh=new VBox();
+            AnchorPane rootmensaje = new AnchorPane();
+            VBox vbh = new VBox();
             vbh.setSpacing(60);
             vbh.setPadding(new Insets(50, 20, 0, 50));
-            Label lbl=new Label();
+            Label lbl = new Label();
             lbl.setText("¿Está seguro de añadir a favoritos?");
             lbl.setAlignment(Pos.CENTER);
             lbl.setFont(Font.font("Arial", FontWeight.BOLD, 20));
             lbl.setTextFill(Color.web("#205d65"));
-            HBox hb=new HBox();
-            hb.setPrefSize(150,200);
+            HBox hb = new HBox();
+            hb.setPrefSize(150, 200);
             hb.setSpacing(125);
-            Button btnaceptar=new Button();
+            Button btnaceptar = new Button();
             btnaceptar.setPrefSize(100, 60);
-            btnaceptar.setPrefWidth(1500);
             btnaceptar.setStyle("-fx-background-color: #ffffff; -fx-border-color: #14a1b5;");
             btnaceptar.setText("Aceptar");
             btnaceptar.setTextFill(Color.web("#14a1b5"));
             btnaceptar.setFont(Font.font("Arial", FontWeight.BOLD, 16));
-            Button btncancelarm=new Button();
-            btncancelarm.setPrefSize(100, 60);
-            btncancelarm.setPrefWidth(1500);
-            btncancelarm.setStyle("-fx-background-color: #ffffff; -fx-border-color: #14a1b5;");
-            btncancelarm.setText("Cancelar");
-            btncancelarm.setTextFill(Color.web("#14a1b5"));
-            btncancelarm.setFont(Font.font("Arial", FontWeight.BOLD, 16));
-            Scene scene = new Scene(rootmensaje,450,240);
+            Button btncancelar = new Button();
+            btncancelar.setPrefSize(100, 60);
+            btncancelar.setStyle("-fx-background-color: #ffffff; -fx-border-color: #14a1b5;");
+            btncancelar.setText("Cancelar");
+            btncancelar.setTextFill(Color.web("#14a1b5"));
+            btncancelar.setFont(Font.font("Arial", FontWeight.BOLD, 16));
+            Scene scene = new Scene(rootmensaje, 450, 240);
             rootmensaje.getChildren().add(vbh);
             vbh.getChildren().add(lbl);
             vbh.getChildren().add(hb);
             hb.getChildren().add(btnaceptar);
-            hb.getChildren().add(btncancelarm);
-            vbh.setMargin(hb,new Insets(0,10,0,10));
+            hb.getChildren().add(btncancelar);
+            vbh.setMargin(hb, new Insets(0, 10, 0, 10));
             stage.setScene(scene);
             stage.show();
-            btnaceptar.setOnAction(new EventHandler<ActionEvent>(){
-                @Override
-                public void handle(ActionEvent event){
-                    stage.close();
-                    Stage s=(Stage)((Button) event.getSource()).getScene().getWindow();
-                    s.close();
-                    for(Auto a:App.crearArrayList("autos.txt")){
-                        if(CompararAutoSeleccionado(a, seleccionado) && !favoritos.contiene(a)){
-                            Fichero.escribir(App.pathArchivos+"favoritos.txt",a.toWrite());
-                        }
+            btnaceptar.setOnAction(e -> {
+                stage.close();
+                Iterator<Auto> it = (App.crearArrayList("autos.txt")).iterator();
+                while(it.hasNext()) {
+                    Auto a = it.next();
+                    if (CompararAutoSeleccionado(a, seleccionado) && !favoritos.contiene(a)) {
+                        Fichero.escribir(App.pathArchivos + "favoritos.txt", a.toWrite());
                     }
                 }
             });
-            btncancelarm.setOnAction(new EventHandler<ActionEvent>(){
-                @Override
-                public void handle(ActionEvent event){
-                    stage.close();
-                }
-            });
+            btncancelar.setOnAction(e -> stage.close());
         }
-
-    }    
+    }
 }

@@ -3,6 +3,8 @@ package proyecto1.grupo13;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -14,13 +16,12 @@ import javafx.stage.Stage;
  * JavaFX App
  */
 public class App extends Application {
-
     private static Scene scene;
     public static String pathImg = "src/main/resources/images/";
     public static String pathImagenes = "src/main/resources/imagenes/";
     public static String pathArchivos = "src/main/resources/archivos/";
     public static String pathDescripciones = "src/main/resources/descripciones/";
-
+    public static String pathCarros = "src/main/resources/";
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("principal"));
@@ -28,15 +29,19 @@ public class App extends Application {
         stage.show();
     }
 
-    static void setRoot(String fxml) throws IOException {
+    public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
-
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+    
+ 
+    public static Parent loadFXML(String fxml) throws IOException {
+        String resourcePath = fxml + ".fxml";
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(resourcePath));
+        fxmlLoader.setLocation(App.class.getResource(resourcePath));
         return fxmlLoader.load();
     }
 
+   
     public static ArrayListAuto<Auto> crearArrayList(String ruta) {
         ArrayListAuto<Auto> autos = new ArrayListAuto<>();
         try (BufferedReader br = new BufferedReader(new FileReader(App.pathArchivos + ruta))) {

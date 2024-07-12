@@ -45,25 +45,19 @@ public class ArrayListAuto<E> implements List<E>{
     }
     
     @Override
-    public E remove(int indice){
-        E copia = arr[indice];
-        for(int i=0;i<n;i++){
-            if(i==indice) {
-                int mover=n-1-i;
-                if (mover>0) System.arraycopy(arr,i+1,arr,i,mover);
-                arr[--n]=null;
-            }
-        }
-        return copia;
+    public E remove(int index) {
+        if (index < 0 || index >= n) throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + n);
+        E element = arr[index];
+        int numMoved = n - index - 1;
+        if (numMoved > 0) System.arraycopy(arr, index + 1, arr, index, numMoved);
+        arr[--n] = null;
+        return element;
     }
 
     public boolean removeElement(E element) {
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < n; i++) {
             if (arr[i].equals(element)) {
-                for (int j = i; j < size - 1; j++) {
-                    arr[j] = arr[j + 1];
-                }
-                arr[--size] = null; // Clear to let GC do its work
+                remove(i);
                 return true;
             }
         }
@@ -105,7 +99,7 @@ public class ArrayListAuto<E> implements List<E>{
 
             @Override
             public boolean hasNext() {
-                return currentIndex < size;
+                return currentIndex < n;
             }
 
             @Override

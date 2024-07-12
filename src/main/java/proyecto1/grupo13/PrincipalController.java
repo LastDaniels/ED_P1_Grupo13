@@ -32,13 +32,13 @@ public class PrincipalController implements Initializable {
     private ImageView imagePrincipal;
     @FXML
     private Button btnsalir;
-
+    @FXML
+    private Button btnTodosLosCarros;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         cargarImagenes();
 
         buttonAutos.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -50,10 +50,10 @@ public class PrincipalController implements Initializable {
                 }
             }
         });
+
         btnFavoritos.setOnMouseClicked((MouseEvent e) -> {
             try {
-                
-        System.out.println(FavoritosController.fav.length == 1);
+                System.out.println(FavoritosController.fav.length == 1);
                 App.setRoot("favoritos");
             } catch (IOException ex) {
             }
@@ -67,6 +67,13 @@ public class PrincipalController implements Initializable {
             }
         });
 
+        btnTodosLosCarros.setOnAction(e -> {
+            try {
+                App.setRoot("TodosLosCarros");
+            } catch (IOException ex) {
+                // ex.printStackTrace();
+            }
+        });
     }
 
     public void cargarImagenes() {
